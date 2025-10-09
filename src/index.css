@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Portfolio Design System 
+Color Palette:
+- Deep Charcoal #0B0F19 (background)
+- Soft Off-White #F8F8F5 (text background)
+- Vibrant Teal #14B8A6 (primary accent)
+- Electric Violet #7C3AED (secondary accent)
+- Muted Gray #6B7280 (subtext)
+- Bright Coral #EF4444 (highlight/accent)
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light mode - Soft Off-White base */
+    --background: 40 14% 97%;
+    --foreground: 215 28% 7%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 28% 7%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 28% 7%;
+
+    /* Vibrant Teal - Primary */
+    --primary: 174 60% 41%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 174 60% 51%;
+
+    /* Electric Violet - Secondary */
+    --secondary: 258 90% 58%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted Gray */
+    --muted: 220 13% 91%;
+    --muted-foreground: 215 14% 48%;
+
+    /* Electric Violet - Accent */
+    --accent: 258 90% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Bright Coral - Highlight */
+    --highlight: 0 88% 59%;
+    --highlight-foreground: 0 0% 100%;
+
+    --destructive: 0 88% 59%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 174 60% 41%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-teal: linear-gradient(135deg, hsl(174 60% 41%), hsl(174 60% 51%));
+    --gradient-violet: linear-gradient(135deg, hsl(258 90% 58%), hsl(258 90% 68%));
+    --gradient-hero: linear-gradient(135deg, hsl(174 60% 41% / 0.1), hsl(258 90% 58% / 0.1));
+    
+    /* Shadows with color */
+    --shadow-teal: 0 10px 40px -10px hsl(174 60% 41% / 0.4);
+    --shadow-violet: 0 10px 40px -10px hsl(258 90% 58% / 0.4);
+    --shadow-glow: 0 0 60px hsl(174 60% 51% / 0.3);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    /* Dark mode - Deep Charcoal base */
+    --background: 215 48% 6%;
+    --foreground: 40 14% 97%;
+
+    --card: 217 45% 8%;
+    --card-foreground: 40 14% 97%;
+
+    --popover: 217 45% 8%;
+    --popover-foreground: 40 14% 97%;
+
+    /* Vibrant Teal - Primary */
+    --primary: 174 60% 51%;
+    --primary-foreground: 215 48% 6%;
+    --primary-glow: 174 60% 61%;
+
+    /* Electric Violet - Secondary */
+    --secondary: 258 90% 68%;
+    --secondary-foreground: 215 48% 6%;
+
+    /* Muted Gray */
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 14% 58%;
+
+    /* Electric Violet - Accent */
+    --accent: 258 90% 68%;
+    --accent-foreground: 215 48% 6%;
+
+    /* Bright Coral - Highlight */
+    --highlight: 0 88% 64%;
+    --highlight-foreground: 215 48% 6%;
+
+    --destructive: 0 88% 64%;
+    --destructive-foreground: 215 48% 6%;
+
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 174 60% 51%;
+
+    /* Custom gradients for dark mode */
+    --gradient-teal: linear-gradient(135deg, hsl(174 60% 51%), hsl(174 60% 61%));
+    --gradient-violet: linear-gradient(135deg, hsl(258 90% 68%), hsl(258 90% 78%));
+    --gradient-hero: linear-gradient(135deg, hsl(174 60% 51% / 0.15), hsl(258 90% 68% / 0.15));
+    
+    /* Shadows with color for dark mode */
+    --shadow-teal: 0 10px 40px -10px hsl(174 60% 51% / 0.5);
+    --shadow-violet: 0 10px 40px -10px hsl(258 90% 68% / 0.5);
+    --shadow-glow: 0 0 60px hsl(174 60% 61% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass {
+    @apply bg-background/80 backdrop-blur-md border border-border/50;
+  }
+
+  .glass-card {
+    @apply bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg;
+  }
+
+  .glow-teal {
+    box-shadow: var(--shadow-teal);
+  }
+
+  .glow-violet {
+    box-shadow: var(--shadow-violet);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-teal);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
